@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors — 00_Specs/6_Styleguide.md */
+  --color-brand: #059669;
+  --color-brand-hover: #047857;
+  --color-brand-subtle: #d1fae5;
+  --color-surface: #f8fafc;
+  --color-surface-card: #f1f5f9;
+  --color-content: #0f172a;
+  --color-content-muted: #334155;
+  --color-content-dark: #1e293b;
+}
+
+/* WCAG 2.2 AA — Fokus-Indikator (Pflicht) */
+*:focus-visible {
+  outline: 2px solid #059669;
+  outline-offset: 2px;
+}
+
+/* Prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,113 @@
+import Link from 'next/link';
+import { TrendingDown, Clock, ShieldCheck } from 'lucide-react';
+
+const comparisons = [
+  {
+    icon: TrendingDown,
+    label: 'Anwalt — Einmal-Gutachten',
+    cost: '5.000–15.000 €',
+    note: 'einmalig, veraltet nach 6 Monaten',
+    highlight: false,
+  },
+  {
+    icon: ShieldCheck,
+    label: 'aiclaration Starter',
+    cost: '49 €/Monat',
+    note: 'laufende Auto-Checks, regelmäßig geprüft, Badge inklusive',
+    highlight: true,
+  },
+  {
+    icon: Clock,
+    label: 'Nichts tun',
+    cost: 'bis 15 Mio. €',
+    note: 'Bußgeld-Risiko Art. 99 Abs. 4 EU AI Act',
+    highlight: false,
+  },
+];
+
+export default function ROISection() {
+  return (
+    <section className="bg-white py-20 px-4 border-t border-slate-100">
+      <div className="max-w-4xl mx-auto">
+        <p className="text-emerald-600 font-semibold text-sm uppercase tracking-wide mb-3 text-center">
+          ROI-Rechnung
+        </p>
+        <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">
+          Was kostet Compliance — und was kostet Nicht-Compliance?
+        </h2>
+        <p className="text-lg text-slate-700 text-center mb-12 max-w-2xl mx-auto">
+          200 KI-Texte × Anwalt 250 €/h = <strong>8.250 € einmalig</strong> — oder aiclaration für <strong>588 €/Jahr</strong>.
+        </p>
+
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {comparisons.map((item) => {
+            const Icon = item.icon;
+            return (
+              <div
+                key={item.label}
+                className={`rounded-xl p-6 border ${
+                  item.highlight
+                    ? 'border-emerald-600 bg-emerald-50 shadow-lg shadow-emerald-600/10'
+                    : 'border-slate-200 bg-slate-50'
+                }`}
+              >
+                {item.highlight && (
+                  <span className="text-xs font-semibold bg-emerald-600 text-white px-3 py-1 rounded-full block w-fit mb-3">
+                    Empfohlen
+                  </span>
+                )}
+                <Icon
+                  className={`w-7 h-7 mb-3 ${item.highlight ? 'text-emerald-600' : 'text-slate-500'}`}
+                  aria-hidden="true"
+                />
+                <p className="text-sm font-medium text-slate-600 mb-1">{item.label}</p>
+                <p
+                  className={`text-2xl font-bold mb-2 ${
+                    item.highlight ? 'text-emerald-700' : 'text-slate-900'
+                  }`}
+                >
+                  {item.cost}
+                </p>
+                <p className="text-xs text-slate-500">{item.note}</p>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Rechenweg */}
+        <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 mb-8">
+          <p className="text-sm font-semibold text-slate-700 mb-3">Rechenbeispiel — Mittelständler mit Blog:</p>
+          <div className="grid sm:grid-cols-3 gap-4 text-sm">
+            <div>
+              <p className="text-slate-500">Anwalt (einmalig)</p>
+              <p className="font-bold text-slate-900 text-lg">8.250 €</p>
+              <p className="text-xs text-slate-400">200 Texte × 250 €/h · veraltet nach 6 Mon.</p>
+            </div>
+            <div>
+              <p className="text-slate-500">aiclaration / Jahr</p>
+              <p className="font-bold text-emerald-700 text-lg">588 €</p>
+              <p className="text-xs text-slate-400">49 €/Monat × 12 · Auto-Checks inklusive</p>
+            </div>
+            <div>
+              <p className="text-slate-500">Ersparnis Jahr 1</p>
+              <p className="font-bold text-emerald-700 text-lg">7.662 €</p>
+              <p className="text-xs text-slate-400">Bei 3 KMU-Größen je ~ 4–14× günstiger</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="text-center">
+          <Link
+            href="/generate"
+            className="bg-emerald-600 text-emerald-100 font-semibold px-8 py-4 rounded-lg hover:bg-emerald-700 active:scale-[0.98] transition-all duration-150 min-h-11 inline-flex items-center justify-center text-lg"
+          >
+            Kostenlos starten — kein Login nötig →
+          </Link>
+          <p className="text-xs text-slate-500 mt-3">
+            Dies ist kein Rechtsrat. Für rechtssichere Compliance-Beurteilung: Rechtsanwalt hinzuziehen.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
