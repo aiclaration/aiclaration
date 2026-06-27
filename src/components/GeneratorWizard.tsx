@@ -557,21 +557,21 @@ export default function GeneratorWizard() {
             </h3>
             <p className="text-sm text-slate-700 mb-4">
               Wenn Sie keinen Zugang zum Dateisystem Ihrer Website haben (Jimdo, Wix, manche Squarespace-Pläne),
-              können Sie die Datei von uns hosten lassen. Ihre Policy ist dann unter{' '}
-              <code className="font-mono text-xs bg-amber-100 px-1 rounded">aiclaration.de/v/[ihr-slug]</code>{' '}
-              erreichbar — kein eigenes Hosting nötig.
+              können Sie Ihre Policy künftig von uns hosten lassen — erreichbar unter{' '}
+              <code className="font-mono text-xs bg-amber-100 px-1 rounded">aiclaration.de/v/[ihr-slug]</code>,
+              ohne eigenes Hosting. Diese Option ist Teil des{' '}
+              <strong>Starter-Plans (in Vorbereitung)</strong>.
             </p>
-            <p className="text-sm font-semibold text-slate-800 mb-3">So funktioniert es:</p>
+            <p className="text-sm font-semibold text-slate-800 mb-3">So wird es funktionieren:</p>
             <ol className="list-decimal list-inside text-sm text-slate-700 space-y-1 mb-4">
-              <li>Aktivieren Sie den Starter-Plan (49 €/Monat)</li>
               <li>Wir richten Ihren persönlichen Slug ein (z. B. <code className="font-mono text-xs bg-amber-100 px-1 rounded">meinefirma</code>)</li>
               <li>Sie verlinken auf <code className="font-mono text-xs bg-amber-100 px-1 rounded">aiclaration.de/v/meinefirma</code> — fertig</li>
             </ol>
             <a
-              href="mailto:info@aiclaration.de?subject=Zero-Tech-Option anfragen&body=Bitte richten Sie einen gehosteten Slug für mich ein. Meine Domain: "
+              href="mailto:info@aiclaration.de?subject=Zero-Tech-Option vormerken&body=Bitte merken Sie mich für die gehostete Zero-Tech-Option vor. Meine Domain: "
               className="inline-flex items-center bg-amber-600 text-white font-semibold px-5 py-3 rounded-lg hover:bg-amber-700 transition-colors min-h-11 text-sm"
             >
-              Zero-Tech-Option anfragen →
+              Für Zero-Tech-Option vormerken →
             </a>
           </div>
 

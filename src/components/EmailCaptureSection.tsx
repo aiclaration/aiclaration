@@ -47,7 +47,7 @@ export default function EmailCaptureSection() {
   }
 
   return (
-    <section className="bg-slate-900 py-20 px-4">
+    <section id="newsletter" className="bg-slate-900 py-20 px-4 scroll-mt-20">
       <div className="max-w-xl mx-auto text-center">
         <h2 className="text-3xl font-bold text-white mb-3">
           Vor August 2026 informiert bleiben
@@ -140,7 +140,7 @@ export default function EmailCaptureSection() {
         )}
 
         <p className="mt-6 text-xs text-slate-500">
-          DSGVO-konform · Double Opt-In · EU-Server (Brevo) · Abmeldung jederzeit
+          Double Opt-In nach § 7 UWG · EU-Server (Brevo) · Abmeldung jederzeit
         </p>
       </div>
     </section>

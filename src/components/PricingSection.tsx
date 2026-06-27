@@ -21,9 +21,9 @@ const plans = [
   {
     name: 'Starter',
     price: '49 €',
-    period: 'pro Monat',
+    period: 'pro Monat (geplant)',
     highlight: true,
-    badge: 'Empfohlen',
+    badge: 'In Vorbereitung',
     features: [
       { text: 'Alles aus Free', included: true },
       { text: 'Monatliche Auto-Checks — Statusänderungen frühzeitig erkennen', included: true },
@@ -32,14 +32,14 @@ const plans = [
       { text: 'Hosted JSON-URL (Zero-Tech-Option)', included: true },
       { text: 'PDF-Audit-Report (SHA-256)', included: false },
     ],
-    cta: { label: 'Starter wählen', href: '/generate' },
+    cta: { label: 'Auf Warteliste vormerken', href: '/#newsletter' },
   },
   {
     name: 'Pro',
     price: '99 €',
-    period: 'pro Monat',
+    period: 'pro Monat (geplant)',
     highlight: false,
-    badge: null,
+    badge: 'In Vorbereitung',
     features: [
       { text: 'Alles aus Starter', included: true },
       { text: 'Wöchentliche Auto-Checks', included: true },
@@ -48,7 +48,7 @@ const plans = [
       { text: 'Prioritäts-Support', included: true },
       { text: 'Agency-Dashboard (V2)', included: false },
     ],
-    cta: { label: 'Pro wählen', href: '/generate' },
+    cta: { label: 'Auf Warteliste vormerken', href: '/#newsletter' },
   },
 ];
 

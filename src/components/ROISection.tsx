@@ -6,14 +6,14 @@ const comparisons = [
     icon: TrendingDown,
     label: 'Anwalt — Einmal-Gutachten',
     cost: '5.000–15.000 €',
-    note: 'einmalig, veraltet nach 6 Monaten',
+    note: 'einmalig, Momentaufnahme zum Prüfzeitpunkt',
     highlight: false,
   },
   {
     icon: ShieldCheck,
-    label: 'aiclaration Starter',
-    cost: '49 €/Monat',
-    note: 'laufende Auto-Checks, regelmäßig geprüft, Badge inklusive',
+    label: 'aiclaration Generator + Validator',
+    cost: '0 €',
+    note: 'kostenlos, ohne Anmeldung — sofort nutzbar',
     highlight: true,
   },
   {
@@ -36,7 +36,8 @@ export default function ROISection() {
           Was kostet Compliance — und was kostet Nicht-Compliance?
         </h2>
         <p className="text-lg text-slate-700 text-center mb-12 max-w-2xl mx-auto">
-          200 KI-Texte × Anwalt 250 €/h = <strong>8.250 € einmalig</strong> — oder aiclaration für <strong>588 €/Jahr</strong>.
+          Eine anwaltliche KI-Compliance-Erstprüfung kostet meist <strong>5.000–15.000 €</strong> einmalig.
+          Der ai-transparency.json-Generator von aiclaration ist <strong>kostenlos</strong> — ohne Anmeldung.
         </p>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
@@ -53,7 +54,7 @@ export default function ROISection() {
               >
                 {item.highlight && (
                   <span className="text-xs font-semibold bg-emerald-600 text-white px-3 py-1 rounded-full block w-fit mb-3">
-                    Empfohlen
+                    Kostenlos verfügbar
                   </span>
                 )}
                 <Icon
@@ -74,26 +75,16 @@ export default function ROISection() {
           })}
         </div>
 
-        {/* Rechenweg */}
+        {/* Hinweis auf geplante Auto-Checks */}
         <div className="bg-slate-50 border border-slate-200 rounded-xl p-6 mb-8">
-          <p className="text-sm font-semibold text-slate-700 mb-3">Rechenbeispiel — Mittelständler mit Blog:</p>
-          <div className="grid sm:grid-cols-3 gap-4 text-sm">
-            <div>
-              <p className="text-slate-500">Anwalt (einmalig)</p>
-              <p className="font-bold text-slate-900 text-lg">8.250 €</p>
-              <p className="text-xs text-slate-400">200 Texte × 250 €/h · veraltet nach 6 Mon.</p>
-            </div>
-            <div>
-              <p className="text-slate-500">aiclaration / Jahr</p>
-              <p className="font-bold text-emerald-700 text-lg">588 €</p>
-              <p className="text-xs text-slate-400">49 €/Monat × 12 · Auto-Checks inklusive</p>
-            </div>
-            <div>
-              <p className="text-slate-500">Ersparnis Jahr 1</p>
-              <p className="font-bold text-emerald-700 text-lg">7.662 €</p>
-              <p className="text-xs text-slate-400">Bei 3 KMU-Größen je ~ 4–14× günstiger</p>
-            </div>
-          </div>
+          <p className="text-sm text-slate-700 leading-relaxed">
+            <strong>Geplant:</strong> Automatische monatliche Re-Checks mit E-Mail-Alert bei
+            Statusänderung (Starter-Plan, <strong>in Vorbereitung</strong>). So bleibt Ihre
+            Dokumentation aktuell, ohne dass Sie manuell nachprüfen müssen.{' '}
+            <Link href="/#newsletter" className="text-emerald-700 font-medium hover:underline">
+              Auf die Warteliste vormerken →
+            </Link>
+          </p>
         </div>
 
         <div className="text-center">

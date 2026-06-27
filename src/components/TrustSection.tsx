@@ -1,7 +1,7 @@
 import { ShieldCheck } from 'lucide-react';
 
 const badges = [
-  'Privacy-by-Architecture — keine personenbezogene Datenspeicherung',
+  'Privacy-by-Architecture — Ihre Tool-Eingaben verlassen nicht Ihren Browser',
   'EU AI Act Art. 50(4) — Policy-Layer dokumentiert',
   'EU Code of Practice on AI Transparency — finalisiert 10.06.2026',
   'Made in Germany — Hosting in der EU (Nürnberg)',
@@ -16,8 +16,8 @@ export default function TrustSection() {
           Vertrauen durch Transparenz
         </h2>
         <p className="text-slate-400 text-lg mb-12 max-w-2xl mx-auto">
-          aiclaration wurde nach dem Prinzip Privacy-by-Architecture entwickelt — Ihre Daten
-          verlassen nie Ihren Browser.
+          aiclaration wurde nach dem Prinzip Privacy-by-Architecture entwickelt — Check &amp;
+          Generator verarbeiten Ihre Eingaben ausschließlich lokal in Ihrem Browser.
         </p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-12">

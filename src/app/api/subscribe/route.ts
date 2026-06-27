@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createRateLimiter, getClientIp } from '@/lib/rate-limit';
+import { resolveBrevoConfig } from '@/lib/subscribe-config';
 
 const BREVO_API_URL = 'https://api.brevo.com/v3/contacts/doubleOptinConfirmation';
 
@@ -49,28 +50,39 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' }, { status: 400 });
   }
 
-  const apiKey = process.env.BREVO_API_KEY;
-  const listId = process.env.BREVO_LIST_ID;
-  const templateId = process.env.BREVO_DOI_TEMPLATE_ID;
+  const config = resolveBrevoConfig(process.env);
   const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? 'https://aiclaration.de';
 
-  if (!apiKey || !listId || !templateId) {
-    // In development: log warning and return success to not block UI testing
-    console.warn('[subscribe] Brevo env vars not configured — BREVO_API_KEY, BREVO_LIST_ID, BREVO_DOI_TEMPLATE_ID');
+  if (!config.ok) {
+    if (config.reason === 'missing-in-prod') {
+      // Fail LOUDLY: a missing var means the DOI email is never sent and no contact is
+      // stored, yet the user would see "Fast geschafft!" — silent data loss with no alert.
+      console.error(
+        '[subscribe] Brevo env vars missing in production — set BREVO_API_KEY, BREVO_LIST_ID, BREVO_DOI_TEMPLATE_ID'
+      );
+      return NextResponse.json(
+        { message: 'Anmeldung derzeit nicht möglich. Bitte versuchen Sie es später erneut.' },
+        { status: 500 }
+      );
+    }
+    // Dev fallback: accept (200) so the UI can be exercised without real Brevo keys.
+    console.warn(
+      '[subscribe] Brevo env vars not configured (dev fallback, no email sent) — BREVO_API_KEY, BREVO_LIST_ID, BREVO_DOI_TEMPLATE_ID'
+    );
     return NextResponse.json({ message: 'ok' }, { status: 200 });
   }
 
   const brevoRes = await fetch(BREVO_API_URL, {
     method: 'POST',
     headers: {
-      'api-key': apiKey,
+      'api-key': config.apiKey,
       'Content-Type': 'application/json',
       accept: 'application/json',
     },
     body: JSON.stringify({
       email: trimmed,
-      includeListIds: [parseInt(listId, 10)],
-      templateId: parseInt(templateId, 10),
+      includeListIds: [parseInt(config.listId, 10)],
+      templateId: parseInt(config.templateId, 10),
       redirectionUrl: `${appUrl}/bestaetigt`,
       attributes: {
         SIGNUP_SOURCE: 'landingpage',

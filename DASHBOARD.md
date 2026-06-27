@@ -1,8 +1,8 @@
 # aiclaration Dashboard
 
-**Status:** In Development (Session 10, 2026-06-23) — Brevo vollständig eingerichtet ✅ · IONOS DNS komplett (Brevo-Auth grün) · DOI-Template ID=1 · Kontaktliste ID=2 · API-Key in Bitwarden · Nächstes: Hetzner + Coolify Deployment
+**Status:** In Development (Session 13, 2026-06-27) — **Finaler 360° Legal-Check (Paranoid) + alle Findings gefixt** ✅ Score 84/100 🟢 (H2 ROISection-UWG, M1 toter Waitlist-Anker, M2 Rechtsgrundlage→Einwilligung/§7 UWG, M3 Art.50(4)-Überzeichnung, M4 ROI-Mathe, M5 Phase-Versatz, A11y) · Phase-1-Funktionstest grün (53 Tests/Build, Stiller-Erfolg-Bug gefixt) · **Legal-Stand committet** (war uncommitted = Deploy-Falle) · Offen: M2 anwaltlich freigeben · Nächstes: Branch→main, Hetzner/Coolify Deployment
 **Quelle:** [[4_Pflichtenheft|00_Specs/4_Pflichtenheft.md]] (authoritative)
-**Regeln:** [[CLAUDE|CLAUDE.md]] · **Sessions:** [[2026-06-19_session-01|01]] · [[2026-06-19_session-02|02]] · [[2026-06-19_session-03|03]] · [[2026-06-19_session-04|04]] · [[2026-06-19_session-05|05]] · [[2026-06-22_session-06|06]] · [[2026-06-23_session-07|07]] · [[2026-06-23_session-08|08]] · [[2026-06-23_session-09|09]] · [[2026-06-23_session-10|10]]
+**Regeln:** [[CLAUDE|CLAUDE.md]] · **Sessions:** [[2026-06-19_session-01|01]] · [[2026-06-19_session-02|02]] · [[2026-06-19_session-03|03]] · [[2026-06-19_session-04|04]] · [[2026-06-19_session-05|05]] · [[2026-06-22_session-06|06]] · [[2026-06-23_session-07|07]] · [[2026-06-23_session-08|08]] · [[2026-06-23_session-09|09]] · [[2026-06-23_session-10|10]] · [[2026-06-24_session-11|11]] · [[2026-06-27_session-12|12]] · [[2026-06-27_session-13|13]]
 
 ---
 
@@ -36,7 +36,7 @@
   - [x] `/agb` — Template gebaut (Platzhalter noch auszufüllen!)
   - [x] `/nutzungsbedingungen` — Template gebaut
   - [x] **FOUNDER-AUFGABE:** Alle `[PLACEHOLDER]` in Rechtseiten ersetzt ← **Session 06** (Stephan Ochmann, c/o Postflex Greven, +49 2363 8072515, info@aiclaration.de, Stand 22.06.2026, Gerichtsstand Greven, Freebie = „KI-Transparenz-Generator", Regulierung = EU AI Act Art. 50). Build grün, 0 Platzhalter.
-  - [x] **360° Legal-Check** via `website-legal-check`-Skill ← **Session 07** — 5 Blocker behoben (§-Rendering, ODR-Link, Dev-Text, "100% DSGVO-konform", Standort-Widerspruch Frankfurt→Nürnberg). Score: ~78/100 🟡
+  - [x] **360° Legal-Check** via `website-legal-check`-Skill ← **Session 07** (Score ~78/100 🟡) + **Session 11 Re-Check** (Score ~86/100 🟢) — Session 11: 3 neue Blocker behoben (TrustSection absolute Privacy-Claims, PricingSection Phase-Versatz Paid-Pläne, EmailCaptureSection "DSGVO-konform"), LDI NRW als Aufsichtsbehörde ergänzt. Build grün 19/19.
   - [x] ~~c/o-Postflex als ladungsfähige Anschrift~~ — ✅ **GELÖST per Gutachten IT-Recht Kanzlei München (17.02.2026)**: BGH V ZR 210/22, Format korrekt. **Founder-Restpunkte:** PostIdent abgeschlossen? + Postflex AVV unterschrieben?
   - [x] **SIGNUP_SOURCE in DSE §7** — ✅ **GELÖST (Session 09)**: „Quellkanal der Anmeldung" in §7 Brevo-Abschnitt ergänzt
   - [x] **Postflex als Auftragsverarbeiter in DSE** — ✅ **GELÖST (Session 09)**: Neuer §8 „Briefkorrespondenz (Postflex)" mit Art. 28 DSGVO-Verweis
@@ -66,7 +66,7 @@
     - [x] Kontaktliste angelegt → `BREVO_LIST_ID=2` ← **Session 10**
     - [x] DOI-Template (ID=1, aktiv) — Button-Link `{{ doubleoptin }}` ← **Session 10**
     - [x] API-Key erstellt → Bitwarden (`me/aiclaration-brevo-api-key`) ← **Session 10**
-  - [ ] Env vars live setzen: `BREVO_API_KEY`, `BREVO_LIST_ID=2`, `BREVO_DOI_TEMPLATE_ID=1`, `NEXT_PUBLIC_APP_URL=https://aiclaration.de` (setzt zugleich Session-05-Finding #3 „stiller Erfolg" außer Kraft)
+  - [x] Env vars live setzen: `BREVO_API_KEY`, `BREVO_LIST_ID=2`, `BREVO_DOI_TEMPLATE_ID=1`, `NEXT_PUBLIC_APP_URL=https://aiclaration.de` ← **Session 11** ✅
 
 #### 1.3 Deployment
   - [ ] Hosting-Platform einrichten (laut 00_Specs/7_Deployment_Ops.md — Hetzner EU + Coolify)
@@ -132,6 +132,7 @@
   - [x] `rate-limit.test.ts` — Limiter-Verhalten + `getClientIp` (6 Tests) ← **Session 06**
   - [x] `schema.test.ts` — S9.2 Fälle 1–8 auf Schema-Ebene + Format-/Enum-Härte (13 Tests) ← **Session 06**. ⚠️ Dabei **Laufzeit-Bug gefunden+gefixt**: `$schema`-URI war `https://…` (falsch) → `ajv.compile()` warf bei jeder Validierung → `/api/validate` 500. Korrigiert auf `http://json-schema.org/draft-07/schema#`. (S9.2 Fälle 9 NOT_FOUND + 10 MIME sind Route-Verhalten → offen als Route-Integrationstest)
   - [x] SSRF-Protection-Tests — alle 8 Szenarien S9.3 + IP-Layer + normalizeUrl (29 Tests) ← **Session 06**
+  - [x] `subscribe-config.test.ts` — `resolveBrevoConfig` Prod-500-Guard vs. Dev-Fallback (5 Tests) ← **Session 12**
   - [ ] Betroffenheits-Check Ergebnis-Matrix (4 Kombinationen)
   - [ ] Generator JSON-Output — korrekte Struktur
 
@@ -174,7 +175,7 @@
 | Problem | Priorität | Status |
 |---|---|---|
 | **`/api/subscribe` ohne Missbrauchsschutz** — E-Mail-Bombing-Vektor. | 🔴 KRITISCH vor Launch | ✅ **GELÖST (Session 06)** — Rate-Limit (5/IP/h) + Honeypot + Time-Trap; ersetzt den entfallenen Cloudflare Bot Fight Mode |
-| **Stiller Erfolg in `/api/subscribe`** — bei fehlenden Brevo-Env-Vars Rückgabe `{message:'ok'}`/200; Nutzer sieht „Fast geschafft!", obwohl nichts gespeichert wird. Fix: in Produktion laut fehlschlagen, nur in Dev schlucken. | 🟡 WICHTIG | Offen — entfällt automatisch sobald Brevo-Env-Vars gesetzt sind |
+| **Stiller Erfolg in `/api/subscribe`** — bei fehlenden Brevo-Env-Vars Rückgabe `{message:'ok'}`/200; Nutzer sieht „Fast geschafft!", obwohl nichts gespeichert wird. Fix: in Produktion laut fehlschlagen, nur in Dev schlucken. | 🟡 WICHTIG | ✅ **GELÖST (Session 12)** — `resolveBrevoConfig` (`src/lib/subscribe-config.ts`) + `route.ts`: in Prod **HTTP 500** bei fehlender Var, nur in Dev 200-Fallback. E2E via Prod-Build verifiziert (500/Honeypot-200/400). 5 neue Tests. `.env.example`-Kommentar korrigiert. |
 | **Tests** — Pflichtenheft S9.2/S9.3 verlangt 10 Schema- + 8 SSRF-Szenarien. | 🔴 KRITISCH (Spec-Pflicht) | **Weitgehend gelöst (Session 06)** — 48 Tests grün: SSRF S9.3 vollständig, Schema S9.2 Fälle 1–8. Offen: S9.2 #9/#10 (Route-Level) + E2E. **Bonus: Laufzeit-Bug in schema.ts gefunden+gefixt** (`$schema`-URI → `/api/validate` 500) |
 | **Spec-Defekt `labeling_method: 'ai Generated'`** weiterhin live in `schema.ts:36` (malformt). Founder-Freigabe nötig (00_Specs READ-ONLY). | 🟡 WICHTIG | Offen — Entscheidung Founder |
 | **Ungeprüft:** kein Dev-Server/Browser-Test diese Session — Lighthouse, a11y-Audit, echte E2E sind ungeprüft, nicht „grün". | 🟡 WICHTIG | Offen |
@@ -220,6 +221,9 @@
 | Session 08 | 2026-06-23 | ✅ | **Global Header + Footer** in `layout.tsx`. Neues `Header.tsx` (Logo + 4 Nav-Links). `FooterSection.tsx` um Haftungsausschluss erweitert (EU AI Act Art. 50, Verordnung (EU) 2024/1689). FooterSection aus `page.tsx`, `check/page.tsx`, `generate/page.tsx`, `bestaetigt/page.tsx` entfernt. Build grün. 19 Routen. |
 | Session 09 | 2026-06-23 | ✅ | **DSE-Komplettbereinigung**: (1) Neuer §8 Postflex als Auftragsverarbeiter (DSGVO Art. 28), (2) SIGNUP_SOURCE in §7 Brevo ergänzt, (3) alle ASCII-Umlaute bereinigt (fuer→für, gemaess→gemäß usw.), (4) Abschnitt-Nummerierung (§9–11), (5) id="main-content" auf `<main>`. Impressum: "für" statt "fuer" + id="main-content". Build grün 19/19. |
 | Session 10 | 2026-06-23 | ✅ | **IONOS + Brevo vollständig eingerichtet**: DNS-Records gesetzt (brevo-code, DKIM1/2, SPF+sendinblue, DMARC TXT mit rua). Domain-Auth grün. Sender `info@aiclaration.de` verifiziert. Kontaktliste `ID=2`. DOI-Template `ID=1` (Button `{{ doubleoptin }}`). API-Key → Bitwarden. IP-Restriction noch nicht aktiviert (Hetzner-IP unbekannt). |
+| Session 11 | 2026-06-24 | ✅ | **360° Legal Re-Check** (website-legal-check-Skill, Code + Browser). 3 Blocker behoben: TrustSection Privacy-Claims (absolute Falschaussagen "nie" / "keine personenbezogene Datenspeicherung"), PricingSection Paid-Pläne Phase-Versatz ("In Vorbereitung" + "Auf Warteliste"), EmailCaptureSection "DSGVO-konform" → "Double Opt-In nach § 7 UWG". DSE §11 LDI NRW ergänzt. Score: 78→86/100 🟢. Build grün 19/19. |
+| Session 13 | 2026-06-27 | ✅ | **Finaler 360° Legal-Check (Paranoid, Pre-Launch) + alle Findings gefixt.** Score 78→84/100 🟢. 2 HOCH (H1 gesamter Legal-Stand uncommitted = Deploy-Falle → committet; H2 ROISection bewarb nicht-buchbaren Starter als „Empfohlen" → auf kostenloses Produkt umgestellt), 5 MITTEL (M1 toter `/#newsletter`-Anker→`id` ergänzt; **M2 Rechtsgrundlage Newsletter durchgängig auf Einwilligung Art.6 I a + §7 UWG** statt §327-Tauschvertrag — DSE+AGB+NB; M3 Art.50(4)-Überzeichnung entschärft; M4 intransparente ROI-Mathe entfernt; M5 Phase-Versatz Badge/`/validate/[slug]`/Zero-Tech), 4 LOW (prefers-reduced-motion, Footer-Kontrast, FAQ-Tippfehler, Pro-Badge). Verifiziert WAHR: client-seitige Tools, keine ext. Fonts/Tracker, CSP/HSTS sauber, „Code of Practice 10.06.2026" korrekt. type-check/lint/53 Tests/Build grün, Live-Render bestätigt. **Offen: M2 anwaltlich freigeben.** |
+| Session 12 | 2026-06-27 | ✅ | **Ausgiebiger Phase-1-Funktionstest + Fix.** type-check/lint/Build grün. Alle 19 Routen 200 (Dev-Server). `/api/subscribe` alle Branches geprüft (valid/honeypot/time-trap/400/400) + **Rate-Limit 5/IP/h exakt bestätigt (6. = 429)**. Security-Header komplett. Impressum/Datenschutz echte Inhalte. **Befund 1 BEHOBEN:** stiller-Erfolg-Failover abgesichert → neue reine Helper-Fn `subscribe-config.ts` (`resolveBrevoConfig`) + `route.ts` gibt in **Prod 500** bei fehlender Brevo-Var (E2E via Prod-Build verifiziert), 5 neue Tests (→ **53 grün**), `.env.example` korrigiert. **Befund 2 offen:** echter Brevo-DOI-Versand erst nach Deployment verifizierbar (lokal keine Keys). |
 
 ---
 

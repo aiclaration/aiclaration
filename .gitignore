@@ -8,5 +8,10 @@ tsconfig.tsbuildinfo
 .DS_Store
 /coverage
 /playwright-report/
+.playwright-mcp/
 .vercel
 .obsidian/
+
+# Lokale Dev-Artefakte (nicht committen)
+dev-server.log
+*-check.png

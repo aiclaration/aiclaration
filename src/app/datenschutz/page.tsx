@@ -78,18 +78,20 @@ export default function DatenschutzPage() {
             <div className="space-y-8">
               <div>
                 <h3 className="text-lg font-semibold text-slate-800 mb-2">
-                  Freebie / Warteliste (&#167; 327 BGB &#8212; Tauschvertrag)
+                  Newsletter-Anmeldung
                 </h3>
                 <p className="text-slate-600 leading-7 mb-4">
-                  Wenn Sie das kostenlose Freebie anfordern, schließen wir mit Ihnen einen Vertrag
-                  über die Bereitstellung digitaler Inhalte gegen Überlassung personenbezogener Daten
-                  (gemäß &#167; 327 BGB). Als Gegenleistung für den kostenlosen Zugang informieren
-                  wir Sie gelegentlich per E-Mail über aiclaration.
+                  Wenn Sie sich für unseren kostenlosen Newsletter anmelden, verarbeiten wir Ihre
+                  E-Mail-Adresse auf Grundlage Ihrer ausdrücklichen Einwilligung. Wir verwenden
+                  das Double-Opt-In-Verfahren: Nach der Anmeldung erhalten Sie eine Bestätigungs-E-Mail;
+                  erst nach Ihrer Bestätigung tragen wir Sie in den Verteiler ein. Die Nutzung unserer
+                  kostenlosen Tools (Check, Generator) ist von der Newsletter-Anmeldung unabhängig.
                 </p>
                 <div className="bg-slate-100 p-4 rounded text-base text-slate-700 leading-relaxed space-y-2">
-                  <p><strong>Gespeicherte Daten:</strong> E-Mail-Adresse, Bestätigungsstatus (Double-Opt-In), Registrierungszeitpunkt.</p>
-                  <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung nach &#167; 327 BGB).</p>
-                  <p><strong>Speicherdauer &amp; Widerruf:</strong> Bis zur Kündigung. Bei Abmeldung Löschung innerhalb 30 Tagen.
+                  <p><strong>Gespeicherte Daten:</strong> E-Mail-Adresse, Bestätigungsstatus (Double-Opt-In), Anmeldezeitpunkt, Quellkanal der Anmeldung.</p>
+                  <p><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) i.&nbsp;V.&nbsp;m. &#167; 7 Abs. 2 UWG.</p>
+                  <p><strong>Speicherdauer &amp; Widerruf:</strong> Bis zum Widerruf Ihrer Einwilligung. Bei Abmeldung Löschung
+                    innerhalb 30 Tagen; den Nachweis der Einwilligung bewahren wir zur Rechtsverteidigung auf.
                     Widerruf jederzeit per Abmeldelink oder an{' '}
                     <a href="mailto:info@aiclaration.de" className="underline">info@aiclaration.de</a>.
                   </p>
@@ -165,7 +167,7 @@ export default function DatenschutzPage() {
               E-Mail-Adresse, Bestätigungsstatus, Quellkanal der Anmeldung. Ihre Daten werden auf EU-Servern gespeichert.
             </p>
             <p className="text-sm text-slate-500">
-              <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung nach &#167; 327 BGB).
+              <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) i.&nbsp;V.&nbsp;m. &#167; 7 UWG.
               AVV gemäß Art. 28 DSGVO ist abgeschlossen. Kein Drittstaat-Transfer.
             </p>
             {/* TODO: Polar-Abschnitt aus Datenschutz_Template.md aktivieren wenn Paid-Version live */}
@@ -296,11 +298,23 @@ export default function DatenschutzPage() {
             </div>
             <div className="bg-amber-50 border-l-4 border-amber-400 p-5 rounded-r">
               <h3 className="text-sm font-bold text-amber-900 uppercase tracking-wide mb-2">
-                Beschwerderecht
+                Beschwerderecht (Art. 77 DSGVO)
               </h3>
               <p className="text-slate-700 text-base leading-relaxed">
-                Sie können sich bei der zuständigen Datenschutzaufsichtsbehörde beschweren.
-                Wir empfehlen, sich zunächst direkt an uns zu wenden:{' '}
+                Sie haben das Recht, sich bei der zuständigen Datenschutzaufsichtsbehörde zu
+                beschweren. Zuständig ist die{' '}
+                <strong>Landesbeauftragte für Datenschutz und Informationsfreiheit
+                Nordrhein-Westfalen (LDI NRW)</strong>,
+                Kavalleriestraße 2–4, 40213 Düsseldorf,{' '}
+                <a
+                  href="https://www.ldi.nrw.de"
+                  className="underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  www.ldi.nrw.de
+                </a>
+                . Wir empfehlen, sich zunächst direkt an uns zu wenden:{' '}
                 <a href="mailto:info@aiclaration.de" className="underline">info@aiclaration.de</a>.
               </p>
             </div>

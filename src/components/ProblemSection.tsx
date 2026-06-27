@@ -6,10 +6,11 @@ export default function ProblemSection() {
     <section className="bg-white py-20 px-4">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold text-slate-900 text-center mb-4">
-          Ab August 2026: Jeder KI-generierte Text muss gekennzeichnet werden
+          Ab August 2026: Neue Transparenzpflichten für KI-generierte Inhalte
         </h2>
         <p className="text-lg text-slate-700 text-center mb-12 max-w-2xl mx-auto">
-          Der EU AI Act Art. 50(4) tritt in Kraft — sind Sie vorbereitet?
+          Der EU AI Act Art. 50(4) greift für öffentlich veröffentlichte KI-Inhalte — mit
+          Ausnahmen bei redaktioneller Prüfung. Sind Sie vorbereitet?
         </p>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">

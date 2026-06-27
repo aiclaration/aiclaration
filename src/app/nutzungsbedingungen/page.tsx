@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 };
 
 // Rechtsdaten ausgefuellt 2026-06-22 (Session 06).
-// Rechtsgrundlage: BGB § 327 · § 356 · RDG · UWG
+// Rechtsgrundlage: BGB · RDG · UWG § 7 (Newsletter = Einwilligung, kein § 327-Tauschvertrag)
 // Vollstaendiges Template: 02_Templates/Nutzungsbedingungen_Template.md
 // HINWEIS: Gilt fuer V1 Freebie (kein Paid-Tier) -- fuer Paid: AGB verwenden
 
@@ -19,15 +19,15 @@ export default function NutzungsbedingungenPage() {
         <div>
           <h2 className="text-base font-semibold text-gray-900 mb-2">§ 1 Gegenstand der Nutzung</h2>
           <p>
-            Mit der Anforderung des kostenlosen &bdquo;KI-Transparenz-Generator&ldquo; schließen Sie mit
-            Stephan Ochmann einen Vertrag über die Bereitstellung digitaler Inhalte gegen
-            Überlassung personenbezogener Daten gemäß § 327 BGB.
+            Der &bdquo;KI-Transparenz-Generator&ldquo; wird kostenlos und ohne Registrierung
+            bereitgestellt. aiclaration räumt Ihnen ein einfaches, nicht übertragbares Recht ein,
+            die erzeugten Dateien für Ihren eigenen Geschäftsbetrieb zu nutzen. Eine Überlassung
+            personenbezogener Daten ist für die Nutzung nicht erforderlich.
           </p>
           <p className="mt-2">
-            aiclaration räumt Ihnen ein einfaches, nicht übertragbares Recht ein, das
-            bereitgestellte Dokument zu rein internen Informationszwecken zu nutzen.
-            Als Gegenleistung erhalten Sie gelegentlich Informationen zu aiclaration-Updates
-            per E-Mail. Eine Abmeldung ist jederzeit möglich und beendet diesen Vertrag.
+            Ein etwaiger Newsletter erfolgt unabhängig von der Tool-Nutzung ausschließlich auf
+            Grundlage Ihrer ausdrücklichen Einwilligung (§ 7 UWG, Double-Opt-In) und ist jederzeit
+            mit Wirkung für die Zukunft abbestellbar.
           </p>
         </div>
         <div>

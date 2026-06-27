@@ -37,7 +37,7 @@ export default function DeadlineCountdown() {
     >
       <span className="relative flex h-2 w-2" aria-hidden="true">
         <span
-          className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
+          className={`motion-safe:animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
             urgency === 'red' ? 'bg-red-500' : urgency === 'amber' ? 'bg-amber-500' : 'bg-slate-400'
           }`}
         />

@@ -10,11 +10,11 @@ const faqs = [
     a: 'Eine offene JSON-Spezifikation, die unter /.well-known/ai-transparency.json auf Ihrer Website abgelegt wird — analog zu robots.txt. Sie beschreibt maschinenlesbar, wie Ihr Unternehmen KI für Content einsetzt.',
   },
   {
-    q: 'Was deckt das Badge AB?',
-    a: 'Den Policy-Layer: Ihr organisatorischer KI-Transparenz-Prozess ist dokumentiert und von aiclaration verifiziert. Das Siegel bestätigt, dass eine ai-transparency.json existiert und dem Standard entspricht.',
+    q: 'Was wird das Verified Badge abdecken?',
+    a: 'Das Verified Badge (in Vorbereitung) wird den Policy-Layer abbilden: Es bestätigt, dass eine ai-transparency.json existiert und dem Standard entspricht — also dass Ihr organisatorischer KI-Transparenz-Prozess dokumentiert ist. Der kostenlose Validator prüft die Datei bereits heute.',
   },
   {
-    q: 'Was deckt das Badge NICHT AB?',
+    q: 'Was deckt das Badge nicht ab?',
     a: 'Den Content-Layer: Die Kennzeichnung einzelner KI-generierter Texte direkt im Content bleibt Ihre Pflicht. Das Badge ist kein Rechtsersatz für die Textkennzeichnung gemäß Art. 50(4).',
   },
   {
@@ -23,7 +23,7 @@ const faqs = [
   },
   {
     q: 'Wie integriere ich das auf meiner Website?',
-    a: 'Sie laden die generierte ai-transparency.json in Ihr /.well-known/-Verzeichnis hoch. Für WordPress, Squarespace und Jimdo gibt es eine Schritt-für-Schritt-Anleitung im Generator. Alternativ: Zero-Tech-Option über /validate/[slug] (Hosted Badge).',
+    a: 'Sie laden die generierte ai-transparency.json in Ihr /.well-known/-Verzeichnis hoch. Für WordPress, Squarespace, IONOS und Jimdo gibt es eine Schritt-für-Schritt-Anleitung im Generator. Ohne Serverzugang (z. B. Jimdo, Wix): Die Zero-Tech-Option (gehostete Policy-URL) ist in Vorbereitung und kann per E-Mail angefragt werden.',
   },
   {
     q: 'Was ist der EU Code of Practice on AI-Generated Content?',

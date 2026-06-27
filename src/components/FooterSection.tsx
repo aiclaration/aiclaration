@@ -31,10 +31,10 @@ export default function FooterSection() {
 
         <div className="border-t border-slate-800 pt-6 space-y-4">
           <div>
-            <p className="text-xs font-semibold text-slate-500 uppercase tracking-wide mb-1.5">
+            <p className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1.5">
               Haftungsausschluss
             </p>
-            <p className="text-xs text-slate-500 leading-relaxed">
+            <p className="text-xs text-slate-400 leading-relaxed">
               aiclaration prüft die formale Konformität von ai-transparency.json-Dateien gemäß
               EU AI Act Art. 50, Verordnung (EU) 2024/1689. Es wird keine Rechts- oder
               Steuerberatung gemäß RDG/StBerG erbracht. Die finale Bewertung und rechtliche
@@ -44,7 +44,7 @@ export default function FooterSection() {
               Aktualität — insbesondere bei Rechtsänderungen — wird nicht übernommen.
             </p>
           </div>
-          <p className="text-xs text-slate-600">
+          <p className="text-xs text-slate-400">
             © {new Date().getFullYear()} aiclaration · Made in Germany · Hosting: Hetzner EU
             (Nürnberg)
           </p>

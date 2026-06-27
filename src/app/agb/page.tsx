@@ -57,18 +57,20 @@ export default function AgbPage() {
         </div>
         <div>
           <h2 className="text-base font-semibold text-gray-900 mb-2">
-            § 3 Kostenlose Inhalte (Tauschvertrag § 327 BGB)
+            § 3 Kostenlose Leistungen und Newsletter
           </h2>
-          <p>(1) Das Freebie wird kostenlos zur Verfügung gestellt.</p>
-          <p className="mt-2">
-            (2) Mit der Anforderung des Freebies schließen Sie einen Vertrag über die
-            Bereitstellung digitaler Inhalte gegen Überlassung personenbezogener Daten
-            (§ 327 BGB). Als Gegenleistung erklären Sie sich bereit, über aiclaration per
-            E-Mail informiert zu werden.
+          <p>
+            (1) Generator, Betroffenheits-Check und Validator werden unentgeltlich und ohne
+            Registrierung bereitgestellt. Eine Überlassung personenbezogener Daten ist für die
+            Nutzung dieser Tools nicht erforderlich.
           </p>
           <p className="mt-2">
-            (3) Die Abmeldung ist jederzeit möglich und beendet diesen Vertrag.
-            Ein Anspruch auf dauerhaften Zugang zum Freebie besteht nicht.
+            (2) Der Newsletter ist von der Tool-Nutzung unabhängig. Er wird ausschließlich auf
+            Grundlage Ihrer ausdrücklichen Einwilligung im Double-Opt-In-Verfahren versendet
+            (§ 7 UWG). Die Abmeldung ist jederzeit mit Wirkung für die Zukunft möglich.
+          </p>
+          <p className="mt-2">
+            (3) Ein Anspruch auf dauerhafte Verfügbarkeit der kostenlosen Leistungen besteht nicht.
           </p>
         </div>
         {/*
