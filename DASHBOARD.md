@@ -40,7 +40,7 @@
   - [x] ~~c/o-Postflex als ladungsfähige Anschrift~~ — ✅ **GELÖST per Gutachten IT-Recht Kanzlei München (17.02.2026)**: BGH V ZR 210/22, Format korrekt. **Founder-Restpunkte:** PostIdent abgeschlossen? + Postflex AVV unterschrieben?
   - [x] **SIGNUP_SOURCE in DSE §7** — ✅ **GELÖST (Session 09)**: „Quellkanal der Anmeldung" in §7 Brevo-Abschnitt ergänzt
   - [x] **Postflex als Auftragsverarbeiter in DSE** — ✅ **GELÖST (Session 09)**: Neuer §8 „Briefkorrespondenz (Postflex)" mit Art. 28 DSGVO-Verweis
-  - [ ] ⚠️ **Hetzner-Serverstandort** im Cloud-Dashboard verifizieren (Nürnberg bestätigen)
+  - [x] ✅ **Hetzner-Serverstandort Nürnberg bestätigt** ← **Session 13 (2026-06-27)** (Founder-Bestätigung) — konsistent mit DSE §5 + Footer
 
 #### 1.1 Landingpage bauen
   - [x] Hero + CTA + Countdown-Timer (`HeroSection.tsx` + `DeadlineCountdown.tsx`) ← **Session 03**
